@@ -8,6 +8,7 @@ import LoadingBar from "react-top-loading-bar";
 export default class App extends Component {
   newsSize = 9;
   country = "us";
+  apikey = process.env.REACT_APP_API_KEY;
 
   state = {
     progress: 0,
@@ -35,11 +36,12 @@ export default class App extends Component {
               path="/"
               element={
                 <News
+                  apikey={this.apikey}
                   setProgress={this.setProgress}
-                  key="main"
+                  key="main/general"
                   newsSize={this.newsSize}
                   country={this.country}
-                  category=""
+                  category="general"
                 />
               }
             ></Route>
@@ -48,6 +50,7 @@ export default class App extends Component {
               path="/business"
               element={
                 <News
+                  apikey={this.apikey}
                   setProgress={this.setProgress}
                   key="business"
                   newsSize={this.newsSize}
@@ -61,6 +64,7 @@ export default class App extends Component {
               path="/entertainment"
               element={
                 <News
+                  apikey={this.apikey}
                   setProgress={this.setProgress}
                   key="entertainment"
                   newsSize={this.newsSize}
@@ -74,6 +78,7 @@ export default class App extends Component {
               path="/general"
               element={
                 <News
+                  apikey={this.apikey}
                   setProgress={this.setProgress}
                   key="general"
                   newsSize={this.newsSize}
@@ -87,6 +92,7 @@ export default class App extends Component {
               path="/health"
               element={
                 <News
+                  apikey={this.apikey}
                   setProgress={this.setProgress}
                   key="health"
                   newsSize={this.newsSize}
@@ -100,6 +106,7 @@ export default class App extends Component {
               path="/science"
               element={
                 <News
+                  apikey={this.apikey}
                   setProgress={this.setProgress}
                   key="science"
                   newsSize={this.newsSize}
@@ -113,6 +120,7 @@ export default class App extends Component {
               path="/sports"
               element={
                 <News
+                  apikey={this.apikey}
                   setProgress={this.setProgress}
                   key="sports"
                   newsSize={this.newsSize}
@@ -126,6 +134,7 @@ export default class App extends Component {
               path="/technology"
               element={
                 <News
+                  apikey={this.apikey}
                   setProgress={this.setProgress}
                   key="technology"
                   newsSize={this.newsSize}

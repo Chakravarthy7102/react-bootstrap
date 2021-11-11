@@ -9,6 +9,7 @@ export default class News extends Component {
     let lower = word.toLowerCase();
     return lower.charAt(0).toUpperCase() + lower.slice(1, lower.length);
   };
+
   static defaultProps = {
     country: "in",
     newsSize: "6",
@@ -31,7 +32,7 @@ export default class News extends Component {
   }
   async loadNews() {
     this.props.setProgress(50);
-    let url = `http://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=a1024e0295874edbb3bc91a6abbb8c63&page=${this.state.page}&pageSize=${this.props.newsSize}`;
+    let url = `http://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apikey}&page=${this.state.page}&pageSize=${this.props.newsSize}`;
     this.setState({
       loading: true,
     });
@@ -44,7 +45,6 @@ export default class News extends Component {
       totalResults: parsedData.totalResults,
       loading: false,
     });
-    console.log(parsedData);
     this.props.setProgress(100);
   }
   async componentDidMount() {
@@ -67,7 +67,12 @@ export default class News extends Component {
 
     return (
       <>
-        <h2 className="text-center">Daily Top News</h2>
+        <h2
+          className="text-center"
+          style={{ margin: "35px 0px", marginTop: "90px" }}
+        >
+          Daily Top News
+        </h2>
 
         <InfiniteScroll
           dataLength={this.state.articles.length}
@@ -107,7 +112,7 @@ export default class News extends Component {
           </div>
         </InfiniteScroll>
         {this.state.articles.length !== this.state.articles.totalResults && (
-          <Footer />
+          <Footer style={{ marginTop: "100px" }} />
         )}
       </>
     );

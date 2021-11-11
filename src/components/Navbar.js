@@ -6,7 +6,7 @@ export default class Navbar extends Component {
     return (
       <div>
         <nav
-          className="navbar navbar-expand-lg  navbar navbar-light my-7"
+          className="navbar fixed-top navbar-expand-lg  navbar navbar-light my-7"
           style={{ background: "#e3f2fd" }}
         >
           <div className="container-fluid">
